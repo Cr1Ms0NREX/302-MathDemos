@@ -5,45 +5,78 @@
 // Don't use rotate()
 // Use vectors and trigonometry
 
-void setup(){
+void setup() {
   size(400, 400);
 }
-void draw(){
-  
+void draw() {
+
   drawBackground();
-  
+
   ///////////////// START YOUR CODE HERE:
-  
-  
-  
+
+  noStroke();
+  fill(255);
+
+  PVector red = FindOvalPos(0, 0);
+  PVector green = FindOvalPos(60, 0);
+  PVector blue = FindOvalPos(-60, 0);
+
+  ellipse(red.x, red.y, 20, 20);
+  ellipse(green.x, green.y, 20, 20);
+  ellipse(blue.x, blue.y, 20, 20);
+
   ///////////////// END YOUR CODE HERE
-  
 }
-void drawBackground(){
+
+PVector FindOvalPos (float rotateAmount, float timeOffset) {
+  float time = millis()/1000.0;
+
+  // Find path on Oval:
+  float x = 150 * cos(time + timeOffset);
+  float y = 50 * sin(time + timeOffset);
+
+  // Convert coodinate to polar:
+  float angle = atan2(y, x);
+  float mag = sqrt(x*x + y*y);
+
+  // Rotate Vector:
+  angle -= radians(rotateAmount);
+
+  // Convert back to cartesian:
+  x = mag * cos(angle);
+  y = mag * sin(angle);
+
+  // Translate to center of screen
+  x += width/2;
+  y += height/2;
+
+  return new PVector(x, y);
+}
+void drawBackground() {
   background(0);
   noStroke();
   fill(255);
-  ellipse(200,200,50,50);
+  ellipse(200, 200, 50, 50);
   noFill();
   strokeWeight(5);
-  
+
   pushMatrix();
-  translate(200,200);
-  stroke(255,100,100);
-  ellipse(0,0,300,100);
+  translate(200, 200);
+  stroke(255, 100, 100);
+  ellipse(0, 0, 300, 100);
   popMatrix();
-  
+
   pushMatrix();
-  translate(200,200);
+  translate(200, 200);
   rotate(PI/1.5);
-  stroke(100,255,100);
-  ellipse(0,0,300,100);
+  stroke(100, 255, 100);
+  ellipse(0, 0, 300, 100);
   popMatrix();
-  
+
   pushMatrix();
-  translate(200,200);
+  translate(200, 200);
   rotate(2*PI/1.5);
-  stroke(100,100,255);
-  ellipse(0,0,300,100);
+  stroke(100, 100, 255);
+  ellipse(0, 0, 300, 100);
   popMatrix();
 }

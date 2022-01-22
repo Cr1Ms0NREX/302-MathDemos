@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 245230285}
   - component: {fileID: 245230284}
   - component: {fileID: 245230283}
-  - component: {fileID: 245230282}
+  - component: {fileID: 245230287}
   m_Layer: 0
   m_Name: ThingToLerp
   m_TagString: Untagged
@@ -143,21 +143,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &245230282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245230281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2b91f99d9224c4abb07d4ccf603c7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointA: {fileID: 912972471}
-  pointB: {fileID: 2080126771}
-  percent: 0.1
 --- !u!65 &245230283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,13 +214,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245230281}
   m_LocalRotation: {x: -0.033903714, y: 0.07254488, z: 0.07377062, w: 0.99405515}
-  m_LocalPosition: {x: -1.961564, y: 2.155291, z: 0.15479597}
+  m_LocalPosition: {x: -2.37, y: 1.93, z: -2.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245230287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245230281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c102ec8db444ca247aced69b0508440c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pointA: {fileID: 912972471}
+  pointB: {fileID: 2080126771}
+  timeTotal: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

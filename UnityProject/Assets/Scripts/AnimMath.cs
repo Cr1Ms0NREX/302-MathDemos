@@ -52,7 +52,7 @@ public static class AnimMath
         return rot;
     }
 
-    public static float Ease(float current, float target, float percentLeftAfterSecond, float dt)
+    public static float Ease(float current, float target, float percentLeftAfterSecond, float dt = -1)
     {
         if (dt < 0) dt = Time.deltaTime;
         float p = 1 - Mathf.Pow(percentLeftAfterSecond, dt = -1);

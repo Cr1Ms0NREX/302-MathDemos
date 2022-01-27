@@ -30,7 +30,7 @@ public class OrbitCameraRig : MonoBehaviour
         float my = Input.GetAxis("Mouse Y");
 
         yaw += mx * mouseSensitivityX;
-        pitch += my * mouseSensitivityY;
+        pitch -= my * mouseSensitivityY;
 
         pitch = Mathf.Clamp(pitch, -89, 89);
 
@@ -40,13 +40,13 @@ public class OrbitCameraRig : MonoBehaviour
 
         Vector2 scrollAmount = Input.mouseScrollDelta;
         disToTarget += scrollAmount.y * scrollSensitivity;
-        disToTarget = Mathf.Clamp(disToTarget, 0, 5);
+        disToTarget = Mathf.Clamp(disToTarget, 5, 50);
 
 
-        //float z = AnimMath.Ease(cam.transform.localPosition.z, -disToTarget, .01f);
-        cam.transform.localPosition = new Vector3(0, 0, -disToTarget);
+        float z = AnimMath.Ease(cam.transform.localPosition.z, -disToTarget, .01f);
+        cam.transform.localPosition = new Vector3(0, 0, z);
+        
         // Position
-
         if (thingToLookAt == null) return;
         //transform.position = thingToLookAt.position;
 

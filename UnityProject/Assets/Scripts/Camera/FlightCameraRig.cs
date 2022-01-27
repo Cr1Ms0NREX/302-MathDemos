@@ -41,7 +41,7 @@ public class FlightCameraRig : MonoBehaviour
         float my = Input.GetAxis("Mouse Y"); // Pitch (X Axis)
 
         yaw += mx * mouseSensitivityX;
-        pitch += my * mouseSensitivityY;
+        pitch -= my * mouseSensitivityY;
 
         pitch = Mathf.Clamp(pitch, -89, 89);
 
